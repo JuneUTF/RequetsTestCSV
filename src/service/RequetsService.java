@@ -11,8 +11,8 @@ public class RequetsService {
     /**
      * リクエストを実行し、結果コードを返します。
      * @param strUrl リクエスト先のURL
-     * @param method リクエストメソッド（GET、POSTなど）
-     * @param json リクエストボディとして送信するJSONオブジェクト
+     * @param method リクエストメソッド（GET、POST、。。。）
+     * @param json JSONオブジェクト
      * @return リクエストの結果コード
      * @throws IOException リクエストの実行中に発生するIO例外
      **/
@@ -20,7 +20,8 @@ public class RequetsService {
         // リクエストを送信するためのURLを定義
         URL url = new URL(strUrl);
         
-        // URLへの接続を開始し、HTTPリクエストを生成
+        //HTTPリクエストを作成
+        
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         
         // リクエストボディを送信するために、出力を許可
@@ -39,7 +40,7 @@ public class RequetsService {
         writer.write(json.toString());
         writer.close();
         
-        // リクエストを実行し、結果コードを取得
+        // リクエストを実行した結果コードを取得
         int responseCode = conn.getResponseCode();
         
         // リクエスト結果コードを返す
